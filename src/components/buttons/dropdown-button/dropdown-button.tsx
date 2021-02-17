@@ -5,15 +5,13 @@ import { Button } from "./components/button";
 import { Menu } from "./components/menu";
 import { Theme } from "./types";
 
-export interface DropdownButton {
+export interface Prop {
 	theme?: Theme;
 	name: string | JSX.Element;
 	children: JSX.Element | JSX.Element[];
 }
 
-export const DropdownButton: React.FC<DropdownButton> = (
-	props
-): JSX.Element => {
+export const DropdownButton: React.FC<Prop> = (props): JSX.Element => {
 	const [hidden, toggleHidden] = useState(true);
 	const handleButtonClick = useCallback((): void => {
 		toggleHidden(!hidden);

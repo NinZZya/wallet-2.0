@@ -7,11 +7,11 @@ export const Wrapper = styled.div`
 	box-sizing: border-box;
 `;
 
-export interface ButtonProp {
+export interface Prop {
 	theme?: Theme;
 }
 
-export const Button = styled.button<ButtonProp>`
+export const Button = styled.button<Prop>`
 	${(props) => {
 		const theme = {
 			...defaultTheme,

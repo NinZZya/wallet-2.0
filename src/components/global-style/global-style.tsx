@@ -4,7 +4,7 @@ import { jsx, Global, css, useTheme } from "@emotion/react";
 import { SerializedStyles } from "@emotion/utils/types";
 import { defaultTheme } from "./const";
 import { Theme } from "./types";
-export interface GlobalProp {
+export interface Prop {
 	[key: string]: never;
 }
 
@@ -27,7 +27,7 @@ const getGlobalStyle = (theme: Theme): SerializedStyles => css`
 	}
 `;
 
-export const GlobalStyle: React.FC<GlobalProp> = () => {
+export const GlobalStyle: React.FC<Prop> = () => {
 	const theme = {
 		...defaultTheme,
 		...useTheme(),

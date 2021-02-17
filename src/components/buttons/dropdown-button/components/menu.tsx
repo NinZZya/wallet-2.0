@@ -2,12 +2,12 @@ import styled from "@emotion/styled";
 import { defaultTheme } from "../const";
 import { Theme } from "../types";
 
-export interface MenuProp {
+export interface Prop {
 	theme?: Theme;
 	hidden: boolean;
 }
 
-export const Menu = styled.ul<MenuProp>`
+export const Menu = styled.ul<Prop>`
 	${(props) => {
 		const theme = {
 			...defaultTheme,

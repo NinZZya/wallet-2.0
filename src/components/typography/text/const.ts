@@ -13,7 +13,7 @@ export const defaultTheme = {
 			"rgba(24, 144, 255, 1)",
 			"rgba(240, 173, 78, 1)",
 			"rgba(217, 83, 79, 1)",
-			"rgba(92, 184, 92, 1)",
+			"rgba(217, 83, 79, 1)",
 			"rgba(0, 0, 0, 1)",
 		],
 	},
@@ -23,3 +23,14 @@ export const defaultTheme = {
 		lineHeight: "24px",
 	},
 };
+
+export const hiddenStyle = `
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+`;
