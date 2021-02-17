@@ -13,7 +13,7 @@ export const defaultTheme = {
 			"rgba(24, 144, 255, 1)",
 			"rgba(240, 173, 78, 1)",
 			"rgba(217, 83, 79, 1)",
-			"rgba(92, 184, 92, 1)",
+			"rgba(217, 83, 79, 1)",
 			"rgba(0, 0, 0, 1)",
 		],
 	},
@@ -22,4 +22,12 @@ export const defaultTheme = {
 		size: "14px",
 		lineHeight: "24px",
 	},
+};
+
+export const levelToRatio: { [key: string]: number } = {
+	h1: 1.9,
+	h2: 1.7,
+	h3: 1.5,
+	h4: 1.3,
+	h5: 1.1,
 };

@@ -9,14 +9,14 @@ export type ButtonKind =
 	| "information"
 	| "error";
 
-export interface ButtonProp {
+export interface Prop {
 	theme?: Theme;
 	kind?: ButtonKind;
 	width?: string;
 	height?: string;
 }
 
-export const Button = styled.button<ButtonProp>`
+export const Button = styled.button<Prop>`
 	${(props) => {
 		const { kind = "primary", width = "auto", height = "auto" } = props;
 		const theme = {

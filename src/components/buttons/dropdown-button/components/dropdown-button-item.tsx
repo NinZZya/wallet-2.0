@@ -1,11 +1,11 @@
 import React from "react";
 
-interface DropdownButtonItemProp {
+interface Prop {
 	children: string | JSX.Element;
 	onClick?: () => void;
 	onCloseMenu?: () => void;
 }
-export const DropdownButtonItem: React.FC<DropdownButtonItemProp> = (props) => {
+export const DropdownButtonItem: React.FC<Prop> = (props) => {
 	const { children, onClick, onCloseMenu } = props;
 	const handleLiClick = () => {
 		if (onClick) {
