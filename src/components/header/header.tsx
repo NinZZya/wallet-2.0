@@ -43,6 +43,7 @@ export const Header = styled.header<Prop>`
       align-items: center;
       background: ${theme.color.selected};
       color: ${theme.color.text};
+	  font-family: ${theme.font.family};
       font-size: ${theme.font.size};
       line-height: ${theme.font.lineHeight};
       box-sizing: border-box;

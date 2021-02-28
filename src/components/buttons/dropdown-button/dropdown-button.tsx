@@ -22,8 +22,10 @@ export const DropdownButton: React.FC<Prop> = (props): JSX.Element => {
 		: [props.children];
 	return (
 		<Wrapper>
-			<Button onClick={handleButtonClick}>{props.name}</Button>
-			<Menu hidden={hidden}>
+			<Button data-name="dropdown-button" onClick={handleButtonClick}>
+				{props.name}
+			</Button>
+			<Menu hidden={hidden} data-name="dropdown-menu">
 				{Children.map(children, (child) => {
 					return cloneElement(child as JSX.Element, {
 						onCloseMenu: handleButtonClick,

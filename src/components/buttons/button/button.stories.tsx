@@ -10,7 +10,7 @@ import {
 } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
-import { Button, ButtonKind } from "./button";
+import { Button, Kind } from "./button";
 import { defaultTheme } from "./const";
 
 export default {
@@ -55,7 +55,7 @@ export const ExampleButton: React.FC = () => {
 		>
 			<Button
 				disabled={boolean("Disabled", false)}
-				kind={getKind() as ButtonKind}
+				kind={getKind() as Kind}
 				theme={theme}
 				onClick={action("clicked")}
 			>
