@@ -2,8 +2,8 @@ import React from "react";
 
 interface Prop {
 	children: string | JSX.Element;
-	onClick?: () => void;
-	onCloseMenu?: () => void;
+	onClick?(): void;
+	onCloseMenu?(): void;
 }
 export const DropdownButtonItem: React.FC<Prop> = (props) => {
 	const { children, onClick, onCloseMenu } = props;
@@ -17,5 +17,9 @@ export const DropdownButtonItem: React.FC<Prop> = (props) => {
 		}
 	};
 
-	return <li onClick={handleLiClick}>{children}</li>;
+	return (
+		<li data-name="dropdown-item" onClick={handleLiClick}>
+			{children}
+		</li>
+	);
 };

@@ -5,9 +5,14 @@ const WorkerPlugin = require("worker-plugin");
 const webpack = require("webpack");
 
 const PUBLIC_PATH = process.env.PUBLIC_PATH;
-const WALLET_API_KEY = process.env.WALLET_API_KEY;
-const WALLET_AUTH_DOMAIN = process.env.WALLET_AUTH_DOMAIN;
-const WALET_PROJECT_ID = process.env.WALET_PROJECT_ID;
+const API_KEY = process.env.API_KEY;
+const AUTH_DOMAIN = process.env.AUTH_DOMAIN;
+const DATABASE_URL = process.env.DATABASE_URL;
+const PROJECT_ID = process.env.PROJECT_ID;
+const STORAGE_BUCKET = process.env.STORAGE_BUCKET;
+const MESSAGING_SENDER_ID = process.env.MESSAGING_SENDER_ID;
+const APP_ID = process.env.APP_ID;
+const USE_MOCK = process.env.USE_MOCK;
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -20,7 +25,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "./bundle.js",
+    filename: "bundle.js",
     publicPath: PUBLIC_PATH,
     // https://github.com/GoogleChromeLabs/worker-plugin/issues/20
     globalObject: "(typeof self!='undefined'?self:global)",
@@ -45,9 +50,14 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
         "process.env.PUBLIC_PATH": JSON.stringify(PUBLIC_PATH),
-        "process.env.WALLET_API_KEY": JSON.stringify(WALLET_API_KEY),
-        "process.env.WALLET_AUTH_DOMAIN": JSON.stringify(WALLET_AUTH_DOMAIN),
-        "process.env.WALET_PROJECT_ID": JSON.stringify(WALET_PROJECT_ID),
+        "process.env.API_KEY": JSON.stringify(API_KEY),
+        "process.env.AUTH_DOMAIN": JSON.stringify(AUTH_DOMAIN),
+				"process.env.DATABASE_URL": JSON.stringify(DATABASE_URL),
+        "process.env.PROJECT_ID": JSON.stringify(PROJECT_ID),
+				"process.env.STORAGE_BUCKET": JSON.stringify(STORAGE_BUCKET),
+				"process.env.MESSAGING_SENDER_ID": JSON.stringify(MESSAGING_SENDER_ID),
+				"process.env.APP_ID": JSON.stringify(APP_ID),
+				"process.env.USE_MOCK": JSON.stringify(USE_MOCK),
     }),
   ],
 };

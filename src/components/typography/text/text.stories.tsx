@@ -9,7 +9,7 @@ import {
 	optionsKnob,
 } from "@storybook/addon-knobs";
 
-import { Text, TextKind } from "./text";
+import { Text, Kind } from "./text";
 import { defaultTheme } from "./const";
 
 export default {
@@ -18,14 +18,15 @@ export default {
 	decorators: [withKnobs],
 } as Meta;
 
-const kind: { [key: string]: TextKind } = {
+const kind: { [key: string]: Kind } = {
+	text: "text",
 	success: "success",
 	information: "information",
 	error: "error",
 };
 
-const getKind = (): TextKind => {
-	return optionsKnob("Kind of button", kind, kind.error, {
+const getKind = (): Kind => {
+	return optionsKnob("Kind of text", kind, kind.text, {
 		display: "select",
 	});
 };

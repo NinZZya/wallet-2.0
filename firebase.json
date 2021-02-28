@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "wallet-89bf5",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

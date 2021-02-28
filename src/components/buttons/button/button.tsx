@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { defaultTheme } from "./const";
 import { Theme } from "./types";
 
-export type ButtonKind =
+export type Kind =
 	| "primary"
 	| "secondary"
 	| "success"
@@ -11,7 +11,7 @@ export type ButtonKind =
 
 export interface Prop {
 	theme?: Theme;
-	kind?: ButtonKind;
+	kind?: Kind;
 	width?: string;
 	height?: string;
 }

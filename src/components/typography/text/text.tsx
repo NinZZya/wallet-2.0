@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { defaultTheme, hiddenStyle } from "./const";
 import { Theme } from "./types";
 
-export type TextKind = "success" | "information" | "error";
+export type Kind = "text" | "success" | "information" | "error";
 
 export interface Prop {
 	theme?: Theme;
@@ -11,7 +11,7 @@ export interface Prop {
 	italic?: boolean;
 	underline?: boolean;
 	strikethrough?: boolean;
-	kind?: TextKind;
+	kind?: Kind;
 }
 
 export const Text = styled.span<Prop>`

@@ -6,22 +6,22 @@
   "scripts": {
     "start": "npx env-cmd -f .env npx webpack-dev-server --mode=development --open --hot",
     "build": "npx env-cmd -f .env.production npx webpack --mode=production",
-    "build:local": "npx env-cmd -f .env.production webpack --mode=production",
+    "build:firebase": "npx env-cmd -f .env webpack --mode=production",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --fix ./",
     "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
     "loki:approve": "npx loki approve",
     "test": "npx jest",
     "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
+		"test:stat": "npx jest --coverage",
     "check": "npm run lint && npm test && npm run test:loki",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "predeploy": "npm run build:local",
-    "deploy:firebase": "firebase deploy",
-    "deploy": "npm run check && npm run build && npm run deploy:firebase"
+    "predeploy:firebase": "rm -rf dist && mkdir dist && npm run build:firebase && cp -R src/coverage/lcov-report dist/coverage/ && cp -R storybook-static dist/storybook/",
+    "deploy:firebase": "npm run predeploy:firebase && npx firebase deploy"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ninzzya/wallet"
+    "url": "git+https://github.com/azarov-serge/wallet-2.0"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +35,7 @@
     "@emotion/babel-plugin": "11.1.2",
     "@emotion/babel-preset-css-prop": "11.0.0",
     "@emotion/eslint-plugin": "11.0.0",
+    "@redux-saga/types": "1.1.0",
     "@storybook/addon-actions": "6.1.15",
     "@storybook/addon-docs": "6.1.15",
     "@storybook/addon-essentials": "6.1.15",

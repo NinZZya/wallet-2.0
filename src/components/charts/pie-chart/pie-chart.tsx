@@ -39,9 +39,9 @@ export const PieChart: React.FC<Prop> = (props) => {
 	const innerRadius = 50;
 	const minRadius = innerRadius + 20;
 
-	if (props.labels) {
-		let calcSize = 0;
-		let size = 0;
+	let calcSize = 0;
+	const size = isHorizontal ? props.width : props.height;
+	if (props.labels && props.withLegents) {
 		if (isHorizontal) {
 			/* Поиск самого длинного слова для расчетов */
 			const maxLengthLabel = props.labels.reduce(
@@ -50,21 +50,19 @@ export const PieChart: React.FC<Prop> = (props) => {
 			);
 
 			/*
-        Расчитывается ширина строки с допущением, что шрифт не квадратный
-        Поэтому размер шрифта умножаю на 1.5
-      */
+				Расчитывается ширина строки с допущением, что шрифт не квадратный
+				Поэтому размер шрифта умножаю на 1.5
+			*/
 			const charWidth = textSize / 1.5;
 			const legendWidth = Math.round(
 				maxLengthLabel * charWidth + textSize + textGap
 			);
 
 			calcSize = outerRadius * 2 + legendWidth;
-			size = props.width;
 		} else {
 			const labelsCount = props.labels.length;
-			const legendHeight = labelsCount * 2 * textSize;
+			const legendHeight = labelsCount * 2 * textSize + textGap;
 			calcSize = outerRadius * 2 + legendHeight;
-			size = props.height;
 		}
 
 		outerRadius =
@@ -87,9 +85,12 @@ export const PieChart: React.FC<Prop> = (props) => {
 		outerRadius - Math.round((String(sum.toFixed(2)).length * textSize) / 3);
 	const totalY = outerRadius - textSize / 2;
 
+	const width = isHorizontal ? props.width : outerRadius * 2;
+	const height = isHorizontal ? outerRadius * 2 : props.height;
+
 	return (
-		<Wrapper theme={theme as Theme} width={props.width} height={props.height}>
-			<Stage width={props.width} height={props.height}>
+		<Wrapper theme={theme as Theme} width={props.width} height={height}>
+			<Stage width={width} height={props.height}>
 				<Layer>
 					{/* Расчитывает и выводит Pie */}
 					{props.values.map((value, index) => {
@@ -140,7 +141,7 @@ export const PieChart: React.FC<Prop> = (props) => {
 							labelY += textGap;
 
 							return (
-								<>
+								<React.Fragment key={`fragment-${index}`}>
 									<Rect
 										key={`${index}-${label}`}
 										x={labelX}
@@ -156,7 +157,7 @@ export const PieChart: React.FC<Prop> = (props) => {
 										x={labelX + textGap}
 										y={labelY}
 									/>
-								</>
+								</React.Fragment>
 							);
 						})}
 					{/* Выводит общую сумму */}
