@@ -25,7 +25,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "./bundle.js",
+    filename: "bundle.js",
     publicPath: PUBLIC_PATH,
     // https://github.com/GoogleChromeLabs/worker-plugin/issues/20
     globalObject: "(typeof self!='undefined'?self:global)",
