@@ -16,7 +16,7 @@ const getTheme = (): typeof defaultTheme => {
 	return object("Theme", defaultTheme, "Theme");
 };
 
-export const ExampleLoader: React.FC = () => {
+export const ExampleLoaderAnimation: React.FC = () => {
 	const theme = getTheme();
 	return (
 		<div
