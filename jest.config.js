@@ -9,6 +9,7 @@ module.exports = {
 	moduleNameMapper: {
 		"^@/(.*)$": "<rootDir>/$1",
 	},
+	transformIgnorePatterns: ["<rootDir>/npde_modules/firebase-mock-js"],
 	coveragePathIgnorePatterns: [
 		"node_modules",
 		"<rootDir>/components",

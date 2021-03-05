@@ -1,8 +1,10 @@
-import { FirestoreMock } from "./fierstore-mock";
-import { transactionsColletion } from "./transactions";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { FirebaseMock } from "firebase-mock-js";
+import { transactions } from "./transactions";
 
 const database = {
-	transactions: transactionsColletion,
+	transactions,
 };
 
-export const dbMock = new FirestoreMock(database);
+export const firebaseMock = new FirebaseMock(database);

@@ -34,10 +34,10 @@ type Prop = ReturnType<typeof mapStateToProps> &
 	ReturnType<typeof mapDispatchToProps>;
 
 export const TableComponent: React.FC<Prop> = (props) => {
-	const { status, transactions, delTransaction } = props;
+	const { status, transactions = [], delTransaction } = props;
 
 	return (
-		<Wrapper>
+		<Wrapper data-name="table">
 			{transactions.map((item) => {
 				return (
 					<Row

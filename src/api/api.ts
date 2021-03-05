@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
-import { dbMock } from "@/mocks/api";
+import { firebaseMock } from "@/mocks/api";
 
 const config = {
 	apiKey: process.env.API_KEY,
@@ -14,4 +14,6 @@ const config = {
 
 firebase.initializeApp(config);
 
-export const db = process.env.USE_MOCK ? dbMock : firebase.firestore();
+export const db = process.env.USE_MOCK
+	? firebaseMock.firestore()
+	: firebase.firestore();
